@@ -2,6 +2,16 @@
     margin: 0;
     padding: 0;
   }
+
+  html {
+    height: 100%;     /*Для того, чтобы footer был снизу страницы, даже если контента будет мало*/
+  }
+
+  body {
+    height: 100%;      /*Для того, чтобы footer был снизу страницы, даже если контента будет мало*/
+    display: flex;     /*Для того, чтобы footer был снизу страницы, даже если контента будет мало*/
+    flex-direction: column;    /*Для того, чтобы footer был снизу страницы, даже если контента будет мало*/
+  }
   
   @font-face {
     font-family: "Open Sans";
@@ -19,13 +29,17 @@
     font-style: normal;
   }
 
+  header, .aside-trends, .page, .aside-products {
+    flex-grow: 1;    /*Для того, чтобы footer был снизу страницы, даже если контента будет мало*/
+  }
+
   .header {
     position: relative;
     text-align: center;
     
     box-sizing: border-box;
     width: 100%;
-    min-width: 360px;
+    min-width: 300px;
     padding: 31px 15px 210px;
 
     background-image: url("../images/banner-mobile.jpg");
@@ -78,7 +92,6 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    
   }
 
   .menu-button-label, .menu-button::after, .menu-button::before {
@@ -134,13 +147,7 @@
     color: #ffffff;
   }
 
-  @media (min-width: 641px) {
-    .logo-link-img {
-      margin-top: 0;
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 1200px) {
+  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
     .header {
       padding: 28px 35px 113px;
 
@@ -150,6 +157,7 @@
 
     .logo-link-img {
       width: 158px;
+      margin-top: 0;
     }
 
     .header-container {
@@ -234,24 +242,11 @@
       font-size: 45px;
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
-  .aside {
+  .aside-trends {
     padding-top: 39px;
     width: 100%;
+    min-width: 300px; /*Эта строка для того, чтобы заголовок "Сейчас в тренде" при уменьшении экрана меньше 360px оставался по центру*/
   }
 
   .section-title {
@@ -260,7 +255,7 @@
     flex-direction: column;
 
     font-style: normal;
-    font-size: 4.44vw;
+    font-size: 16px;
     font-weight: 700;
     font-family: "Open Sans", "Arial", sans-serif;
     
@@ -274,25 +269,22 @@
     width: 66px;
     height: 3px;
     margin-top: 9px;
-    margin-bottom: 19px;
+    margin-bottom: 23px;
     
     background-color: #e1d9bd;
   }
 
-  .article {
-    position: relative;
-    text-align: center;
-    
-    box-sizing: border-box;
-    width: 100%;
-    min-width: 360px;
-  }
-
   .trends-article {
+    position: relative;
+
     display: flex;
     align-items: flex-end;
-    padding: 5.56% 4.17% 4.44%;
-    min-height: 64.17vw;
+    padding: 20px 4.17% 16px;
+    width: 100%;
+    min-width: 300px;
+    height: 231px;
+    box-sizing: border-box;
+    text-align: center;
 
     background-color: #000000;
     background-size: cover;
@@ -304,7 +296,7 @@
     margin-top: 3px;
   }
 
-  .article::after {
+  .trends-article::after {
     content: "";
     
     position: absolute;
@@ -333,15 +325,13 @@
     background-image: url("../images/trend4.jpg");
   }
 
-  .article-info {
+  .trends-article-info {
     position: relative; /*Нужно, чтобы работал z-index*/
     z-index: 1;
 
-    display: flex;
-    align-items: flex-start;
     padding: 28px 8% 25px 6.1%; /*Отступ слева для заголовка и тэгов будет меняться с изменением размера блока*/
     width: 100%;
-    min-height: 35.56vw; /*Блок с информацией увеличивается при увеличении окна, но минимальная его высота 148px*/
+    min-height: 128px; /*Блок с информацией увеличивается при увеличении окна, но минимальная его высота 128px*/
     box-sizing: border-box;
     border: 3px solid RGBA(211, 197, 157, 0.6);
   }
@@ -360,7 +350,7 @@
   
   .article-tag-link {
     font-style: normal;
-    font-size: 3.89vw;
+    font-size: 14px;
     font-weight: 700;
     font-family: "Open Sans", "Arial", sans-serif;
     text-decoration: none;
@@ -379,45 +369,43 @@
 
     text-align: left;
     font-style: normal;
-    font-size: 4.44vw;
+    font-size: 16px;
     font-weight: 700;
     font-family: "Open Sans", "Arial", sans-serif;
     text-transform: uppercase;
     line-height: 1.25;
   }
   
-  .article-title-link {
+  .trends-title-link {
     text-decoration: none;
     
     color: #ffffff;
   }
   
-  .article-title-link:hover {
+  .trends-title-link:hover {
     color: #b59f5b;
   }
 
-  @media (min-width: 641px) {
-    .article-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-  }
-
-  @media (min-width: 641px) and (max-width: 1200px) /*, (max-width: 640px) and (orientation: landscape)*/ {
+  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
     .aside {
       padding-top: 64px;
     }
 
     .section-title {
-      font-size: 2.34vw;
+      font-size: 18px;
+    }
+
+    .trends .article-list, .aside-products .article-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     .trends-article {
       width: 49.74%;
-      min-width: 320px; /*Перебиваем min-width для .article выше, там стоит min 360, и меньше этого значения не уменьшается article*/
-      min-height: 32.16vw;
-      padding: 3.9vw 2.6vw 1.95vw;
+      min-width: 300px; /*Перебиваем min-width для .article выше, там стоит min 360, и меньше этого значения не уменьшается article*/
+      height: 247px;
+      padding: 30px 2.6% 15px;
   
       background-position: left 50% bottom 0;
     }
@@ -430,148 +418,119 @@
       margin-top: 3px;
     }
 
-    .article-info {
-      min-height: 17.71vw;
-      padding: 4.04vw 7.42vw 3.78vw 3.91vw;
+    .trends-article-info {
+      min-height: 136px;
+      padding: 31px 14.92% 29px 7.85%;
     }
 
     .article-tag-link {
-      font-size: 1.82vw;
+      font-size: 14px;
     }
 
     .article-title {
-      font-size: 2.21vw;
+      font-size: 17px;
     }
   }
 
   @media (min-width: 1201px) /*, (min-width: 641px) and (max-width: 1200px) and (orientation: landscape)*/ {
-    .aside {
-      padding-top: 59px;
+    .aside-trends .trends {
+      margin-top: 13px;
     }
-
+   
     .section-title {
-      font-size: 1.2vw;
+      font-size: 20px;
     }
 
-    .section-title::after {
-      margin-bottom: 28px;
+    .aside-trends .trends .section-title::after {
+      margin-bottom: 27px;
+    }
+
+    .aside-trends {
+      max-width: 1660px;
+      margin: auto;
+    }
+    
+    .aside-trends .article-list {
+      height: 320px;
     }
 
     .trends-article {
       width: 24.8%;
-      min-width: 300px;
-      min-height: 19.28vw;
-      padding: 0.96vw 1.33vw;
+      min-width: 200px;      /*Переопределяем то, что было задано ранее для media от 641px*/
+      height: 100%;
+      padding: 16px 22px;
     }
 
     .trends-article:nth-child(n+2) {
       margin: 0;
     }
 
-    .article-info {
-      min-height: 8.8vw;
-      padding: 2.05vw;
+    .trends-article-info {
+      min-height: 146px;
+      padding: 30px;
     }
 
     .article-tag-link {
-      font-size: 0.84vw;
+      font-size: 14px;
     }
 
     .article-title {
-      font-size: 1.2vw;
+      font-size: 20px;
     }
   }
 
-  /*
   .page {
+    min-width: 300px; /*Эта строка для того, чтобы статьи при уменьшении экрана меньше 360px оставались по центру*/
     box-sizing: border-box;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 1660px;
-    padding-left: 245px;
-    padding-right: 245px;
+    padding-top: 12px;
+    padding-left: 4.17%;
+    padding-right: 4.44%;
   }
-  
-  .main {
-    padding-top: 64px;
-    width: 777px;
-    min-width: 777px;
-  }
-  
+
   .article {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    padding-top: 34px;
   }
+
+  .article::after {
+    content: "";
   
-  .article:nth-child(n+2) {
-    margin-top: 56px;
+    display: block;
+    height: 3px;
+    
+    background-color: #eeeeee;
   }
-  
+
+  .page .article-prewiew {
+    text-align: center;
+  }
+
   .article-img {
-    width: 381px;
+    width: 100%;
+    max-width: 329px;
   }
-  
-  .article-info {
-    box-sizing: border-box;
-    width: 366px;
-    min-width: 366px;
+
+  .main .article-header {
+    margin-top: 7px;
   }
-  
-  .article-tags {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 2px;
-    
-    list-style: none;
-  }
-  
-  .article-tags-item {
-    margin-right: 19px;
-  }
-  
-  .article-tag-link {
-    font-style: normal;
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 700;
-    font-family: "Open Sans", "Arial", sans-serif;
-    text-decoration: none;
-    text-transform: uppercase;
-    
-    color: #c8b26e;
-  }
-  
-  .article-tag-link:hover {
-    color: #b59f5b;
-    border-bottom: 2px solid #e0d8c2; 
-  }
-  
-  .article-title {
-    margin-bottom: 24px;
-    width: 340px;
-    min-width: 340px;
-  }
-  
+
   .article-title-link {
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: "Open Sans", "Arial", sans-serif;
     text-decoration: none;
-    text-transform: uppercase;
-    
+
     color: #0f0d0e;
   }
-  
+
   .article-title-link:hover {
     color: #b59f5b;
   }
-  
+
+  .meta {
+    margin-top: 16px;
+    margin-bottom: 14px;
+  }
+
   .date {
     margin-right: 10px;
-    overflow-wrap: anywhere;
+    overflow-wrap: anywhere; /*Если слишком длинная строка, текст без переносов переходит на следующую строку*/
     
     font-style: normal;
     font-size: 12px;
@@ -591,13 +550,14 @@
     
     color: #000000;
   }
-  
+
   .article-description {
-    margin-top: 44px;
-    
+    padding-right: 1.52%; /*Подравнивает параграфы по правому краю*/
+    padding-bottom: 21px;
+
     font-style: normal;
-    font-size: 15px;
-    line-height: 1.47;
+    font-size: 14px;
+    line-height: 1.43;
     font-weight: 400;
     font-family: "Open Sans", "Arial", sans-serif;
     
@@ -605,70 +565,51 @@
   }
   
   .article-paragraph:nth-child(n+2) {
-    margin-top: 11px;
+    margin-top: 5px;
   }
-  
-  .aside {
-    padding-top: 58px;
-    width: 271px;
-    min-width: 271px;
-  }
-  
-  .aside-chapter:nth-child(n+2) {
-    margin-top: 57px;
-  }
-  
-  .new-posts {
-    margin-bottom: 56px;
-  }
-  
-  .section-title {
+
+  .page .aside-chapter {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    
-    font-style: normal;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: "Open Sans", "Arial", sans-serif;
-    
-    text-transform: uppercase;
-    color: #0f0d0e;
+    align-items: center;
+    margin-top: 37px;
   }
-  
-  .section-title::after {
-    content: "";
-  
-    width: 66px;
-    height: 3px;
-    margin-top: 11px;
-    
-    background-color: #e1d9bd;
+
+  .page .main .article-list {
+    margin-top: 9px;
   }
-  
-  .article-list {
-    margin-top: 29px;
+
+  .aside .article-list {
+    margin-top: 4px;
   }
-  
+
   .aside-article {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  
+
   .aside-article:nth-child(n+2) {
     margin-top: 18px;
   }
-  
+
+  .aside-article-prewiew {
+    margin-right: 18px;
+  }
+
   .aside-article-img {
     width: 70px;
   }
-  
+
   .aside-article-header {
-    width: 183px;
-    min-width: 183px;
     position: relative;
     bottom: 4px;
+
+    width: 72.64%;
+    flex-grow: 0.1;    /*Без этой строчки не работает space-between у родителя. Видимо, заданный в body flex-grow: 1; распространяется на все флекс-элементы в боди, поэтому конкретно этот переопределил*/
+    min-width: 179px;
   }
   
   .aside-title-link {
@@ -686,15 +627,27 @@
   .aside-title-link:hover {
     color: #b59f5b;
   }
-  
+
   .form-aside {
     display: flex;
-    text-align: center;
+    min-width: 274px;
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .new-posts .form-aside {
+    margin-top: 56px;
   }
   
+  .form-row-search {      /*Задаём определённые размеры, чтобы в дальнейшем от них считались проценты в размерах поискового поля*/     
+    width: 85.41%;       /*Размеры в процентах считаются от родительского элемента (в данном случае от .form-aside, который равняется 329px, если смотреть в панели разработчика*/
+    min-width: 221px;
+  }
+
   .field {
     box-sizing: border-box;
-    padding: 18px;
+    padding: 18px 6.05%;
+    width: 100%;            /*100% от родительского элемента. В данном случае родитель для полей не .form-group, как можно было бы подумать, а .form-row-search/.form-row-email*/
     height: 48px;
     
     font-style: normal;
@@ -709,22 +662,18 @@
     -moz-appearance: none;
   }
   
-  .search-field {
-    width: 222px;
-  }
-  
-  .search-field:focus {
-    position: relative;
+  .form-row-search .field:focus {
+    position: relative;     /*Для того, чтобы при появлении обводки ничего не смещалось, уменьшили высоту на 2 px и сдвинули позицию на 1px вверх, чтобы поле оказалось по центру*/
     top: 1px;
     
-    height: 46px;
-    
+    height: 46px;    /*Уменьшаем высоту на 2 px, так как эти 2px нам добавит обводка при фокусе*/
+
     outline: 1px solid #b59f5b;
   }
   
   .button {
     height: 48px;
-    
+
     border: 0;
     background-color: #b59f5b;
     
@@ -736,12 +685,16 @@
     cursor: pointer;
     background-color: #323232;
   }
-  
-  .search-button {
+
+  .form-row-button {
     width: 48px;
+  }
+
+  .search-button {
+    width: 100%; /*100% от родительского элемента .form-row-button*/
     
     background-image: url("../svg/search.svg");
-    background-size: 18px auto;
+    background-size: 37.5% auto;    /*37.5% считаются от размеров кнопки*/
     background-repeat: no-repeat;
     background-position: center center;
   }
@@ -756,39 +709,45 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
+
+  .subscribe {
+    position: relative;
+    bottom: 4px;
+  }
   
   .subscribe {
-    box-sizing: border-box;
-    
-    align-items: stretch;
     flex-direction: column;
   }
-  
-  .email-field {
-    width: 100%;
-    margin-top: 21px;
+
+  .form-row-email .field {
+    margin-top: 5px;
   }
-  
-  .subscribe-button {
-    width: 100%;
-    margin-top: 19px;
-    
+
+  .subscribe-button, .shop-link-button {
     font-style: normal;
     font-size: 14px;
     font-weight: 700;
     font-family: "Open Sans", "Arial", sans-serif;
     text-transform: uppercase;
+    text-decoration: none;
     
     color: #ffffff;
   }
   
-  .email-field:focus {
-    outline: 1px solid #b59f5b;
+  .subscribe-button {
+    width: 100%;
+    margin-top: 19px;
   }
   
+  .form-row-email .field:focus {
+    outline: 1px solid #b59f5b;
+  }
+
   .tags {
-    margin-top: 10px;
-    margin-bottom: 62px;
+    position: relative;
+
+    bottom: 11px;
+    margin-bottom: 40px;
   }
   
   .tag-list {
@@ -804,7 +763,7 @@
   }
   
   .tag-link {
-    padding: 4px 13px 3px;
+    padding: 4px 12px 3px;
     
     font-style: normal;
     font-size: 12px;
@@ -820,10 +779,13 @@
   .tag-link:hover {
     border: 3px solid #b59f5b;
   }
-  
-  .topics {
-    margin-top: 21px;
-    padding-left: 1px;
+
+  .page .aside-topics {
+    position: relative;
+    bottom: 8px;
+
+    display: block;   /*Прижимаем к левому краю, так как выше для этого класса флексом задано положение в центре страницы*/
+    margin-top: 0;
   }
   
   .topic-list-item {
@@ -851,7 +813,7 @@
   }
   
   .topic-link {
-    margin-right: 2px;
+    margin-right: 3px;
     
     font-style: normal;
     font-size: 14px;
@@ -873,19 +835,563 @@
     
     color: #b59f5b;
   }
+
+  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+    .aside-trends {
+      padding-top: 44px;
+    }
+
+    .trends .section-title::after {
+      margin-bottom: 19px;
+    }
+   
+    .page {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 8px;
+      padding-left: 4.56%;
+      padding-right: 4.56%;
+    }
+
+    .main {
+      width: 56.02%;   /*Здесь проценты от .page, а ширина .page не вся страница (768px), а с вычетом паддингов 698px*/
+      margin-top: 43px;
+    }
+
+    .article {
+      padding-top: 0;
+    }
+
+    .article:nth-child(n+2) {
+      margin-top: 42px;
+    }
+
+    .main .article-prewiew {
+      text-align: left;
+    }
+    
+    .main .article-img {
+      max-width: 391px;
+    }
+
+    .article-info {
+      padding-bottom: 17px;
+    }
+
+    .main .article-header {
+      padding-right: 0;
+      margin-top: 8px;
+    }
+
+    .meta {
+      margin-top: 31px;
+      margin-bottom: 27px;
+      font-size: 12px;
+    }
+
+    .date, .author {
+      font-size: 12px;
+    }
+
+    .article-title-link {
+      font-size: 17px;
+      line-height: 1.29;
+    }
   
+    .article-description {
+      width: 100%;
+      padding-bottom: 0;
+      font-size: 15px;
+      line-height: 1.47;
+    }
+    
+    .article-paragraph:nth-child(n+2) {
+      margin-top: 12px;
+    }
+
+    .aside {
+      width: 38.83%;    /*Здесь проценты от .page, а ширина .page не вся страница (768px), а с вычетом паддингов 698px*/
+      padding: 0;
+    }
+
+    .page .section-title, .aside-title-link {
+      font-size: 14px;
+    }
+
+    .page .aside-chapter:nth-child(n+2) {
+      margin-top: 56px;
+    }
+
+    .new-posts .section-title::after {
+      margin-bottom: 22px;
+    }
+
+    .aside .article-list {
+      margin-top: 9px;
+    }
+
+    .new-posts .aside-article {
+      min-width: 220px;
+      justify-content: initial;
+    }
+
+    .aside-article-header {
+      width: 67.16%;        /*Почему-то, если задать строгую (но правильную по макету) ширину, например 182px,*/
+      min-width: 132px;     /*то такая ширина не будет устанавливаться, и флекс свойство у родителя (space-beetween) работать не будет; нужно задать именно ширину через проценты*/
+    }
+
+    .aside-article:nth-child(n+2) {
+      margin-top: 18px;
+    }
+
+    .form-aside {
+      min-width: 200px;
+      max-width: 300px;
+    }
+    
+    .form-row-search {
+      min-width: 100px;
+    }
+  
+    .field {
+      padding: 18px 7.49%;
+    }
+    
+    .subscribe-button {
+      font-size: 14px;
+    }
+
+    .aside-tags {
+      position: relative;
+      bottom: 3px;
+    }
+
+    .tag-list-item {
+      margin-right: 7px;
+      margin-top: 18px;
+    }
+    
+    .tag-link {
+      padding: 4px 12px 3px;
+      
+      font-size: 12px;
+      
+      text-decoration: none;
+      border: 4px solid #eeeeee;
+    }
+
+    .page .aside .aside-topics {
+      margin-top: 15px;
+    }
+
+    .topics {
+      margin-top: 0;
+    }
+    
+    .topic-link {
+      margin-right: 6px;
+      
+      font-size: 14px;
+    }
+    
+    .topic-amount {
+      font-size: 12px;
+    }
+  }
+
+  @media (min-width: 1201px) {
+    .page {
+      width: 70.48%;
+      min-width: 964px;
+      max-width: 1170px;
+      margin: auto;
+      padding: 0;
+    }
+
+    .main {
+      width: 66.5%;
+      margin-top: 63px;
+    }
+
+    .article {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      min-width: 641px;
+    }
+
+    .article:nth-child(n+2) {
+      margin-top: 56px;
+    }
+
+    .main .article-header {
+      margin: 0;
+    }
+
+    .main .article-title {
+      margin-top: 6px;
+    }
+
+    .article-title-link {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .meta {
+      position: relative;
+      right: 4px;
+
+      margin-top: 16px;
+      margin-bottom: 42px;
+
+      font-size: 26px;
+    }
+    
+    .date {
+      margin-right: 7px;
+      
+      font-size: 12px;
+    }
+
+    .author {
+      font-size: 12px;
+    }
+
+    .article-paragraph {
+      font-size: 15px;
+    }
+
+    .article::after {
+      display: none;      /*Убираем полосу снизу после каждой статьи в режиме планшета, из-за этого флекс не мог раздвинуть элементы на всю ширину флекс контейнера*/
+    }
+
+    .article-prewiew {
+      width: 48.97%;
+    }
+
+    .main .article-img {
+      width: 100%;
+      min-width: 314px;
+    }
+
+    .article-info {
+      width: 47.04%;
+      min-width: 200px;
+    }
+
+    .aside {
+      width: 23.16%;
+      min-width: 100px;
+    }
+
+    .aside {
+      margin-top: 22px;
+    }
+
+    .aside .section-title, .aside-title-link {
+      font-size: 14px;
+    }
+
+    .field {
+      padding: 18px 17px;
+    }
+
+    .button {
+      font-size: 14px;
+    }
+
+    .tag-list-item {
+      margin-right: 7px;
+      margin-top: 18px;
+    }
+    
+    .tag-link {
+      padding: 4px 13px 3px;
+      
+      font-size: 12px;
+      
+      text-decoration: none;
+      border: 3px solid #eeeeee;
+    }
+
+    .topics {
+      position: relative;
+      bottom: 2px;
+    }
+    
+    .topic-link {
+      margin-right: 6px;
+      
+      font-size: 14px;
+    }
+    
+    .topic-amount {
+      font-size: 12px;
+    }
+  }
+  
+  .aside-products {
+    padding-left: 4.17%;
+    padding-right: 4.17%;
+    margin-top: 33px;
+    min-width: 300px;     /*Для того, чтобы раздел оставался по центру при уменьшении менее 300px*/
+    box-sizing: border-box;
+  }
+
+  .product-article {
+    position: relative;     /*Для того, чтобы для превью работал position: absolute;*/
+    display: flex;          /*Эта и следующая строки центрируют картинку (а заодно и блок с информацией), без них при сужении менее 360px картинка прилипала к левому краю из-за position: absolute у .article-prewiew*/
+    justify-content: center;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .product-article:nth-child(n+2) {
+    margin-top: 277px;         /*Отступ между статьями с учётом высоты картинок*/
+  }
+
+  .product-article .article-prewiew {
+    position: absolute;    /*Выносим картинки за слой под блок информации; выносим картинки, а не статьи, потому что высота картинок одинаковая, а у информационных блоков высота разная*/
+    
+    min-width: 254px; 
+    width: 86.06%;
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  .product-article .article-img {
+    width: 100%;
+    max-width: 284px;
+  }
+
+  .product-article .article-info {
+    position: relative;
+    top: 258px;         /*Так как блок над абсолютно спозиционированной картинкой, смещаем его вниз на нужное расстояние, чтобы он немного налезал на картинку*/
+
+    box-sizing: border-box;
+    padding: 53px 6.06% 25px; /*Отступ слева для заголовка будет меняться с изменением размера блока*/
+    
+    border: 3px solid RGBA(211, 197, 157, 0.6);
+  }
+
+  .aside-products .aside-title-link {
+    position: relative;
+    bottom: 2px;
+    font-size: 17px;
+  }
+
+  .product-article .article-description {
+    padding-right: 0;
+  }
+
+  .product-article .article-paragraph {
+    font-size: 15px;
+    line-height: 1.47;
+  }
+
+  .paragraph-link {
+    text-decoration: none;
+    color: #b59f5b;
+  }
+
+  .paragraph-link:hover {
+    text-decoration: underline;
+  }
+
+  .article-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Open Sans", "Arial", sans-serif;
+    line-height: 1;
+  }
+
+  .old-price {
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+
+  .shop-link .button {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+    .aside-products {
+      margin-top: 42px;
+      width: 100%;
+      padding-left: 4.56%;
+      padding-right: 4.56%;
+    }
+
+    .aside-products .article-list {
+      max-width: 872px;
+      margin: auto;
+    }
+
+    .product-article {
+      width: 48.28%;
+      max-width: 421px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .product-article:nth-child(n+2) {
+      margin-top: 0;
+    }
+
+    .product-article:nth-child(n+3) {
+      margin-top: 224px;         /*Отступ между статьями с учётом длины картинок*/
+    }
+
+    .aside-products .aside-article-header {
+      min-width: 280px;            /*Это для того, чтобы заголовок был в одну строку, а не в две*/
+    }
+
+    .product-article .article-prewiew {
+      min-width: 250px;
+      width: 86.35%;
+      padding-left: 6.53%;
+      padding-right: 6.53%;
+    }
+
+    .product-article .article-img {
+      width: 100%;
+      max-width: 310px;
+    }
+
+    .product-article .article-info {
+      top: 199px;       /*Так как блок над абсолютно спозиционированной картинкой, смещаем его вниз на нужное расстояние, чтобы он немного налезал на картинку*/
+      
+      padding: 52px 6.23% 24px 5.64%; /*Отступ слева для заголовка и тэгов будет меняться с изменением размера блока*/
+    }
+
+    .aside-products .aside-title-link {
+      font-size: 17px;
+    }
+  
+    .product-article .article-paragraph {
+      font-size: 15px;
+      padding-bottom: 21px;
+    }
+
+    .article-footer {
+      padding: 0;
+    }
+
+    .product-price {
+      font-size: 20px;
+    }
+
+    .old-price {
+      font-size: 14px;
+    }
+
+    .shop-link-button {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 1201px) {
+    .aside-products {
+      margin-top: 55px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+      width: 70.48%;
+      min-width: 1064px;    /*Без этого блок со статьями будет сужаться дальше, и статьи начнут прилепать друг к другу*/
+    }
+
+    .aside-products .article-list {
+      max-width: 1170px;    /*Переназначаем значение max-width, указанное для media от 641px*/
+      justify-content: space-evenly;
+    }
+
+    .product-article {
+      width: 29.66%;
+     }
+
+     .product-article:nth-child(3n+2) {
+      margin-left: 5.47%;       /*!!!  Обязательно в процентах, при фиксированных марджинах по три блока не будет помещаться и блоки будут переноситься*/
+    }
+
+    .product-article:nth-child(3n+3) {
+      margin-left: 5.47%;       /*Вместо того, чтоб у центральной статьи в каждой строке (предыдущее CSS-свойство) установить margin слева и справа, мы установили margin слева у центральной (второй) и последней (третьей) статьи в строке*/
+    }                           /*Если устанавливать margin с обеих сторон только у второй статьи, то в ситуации, когда в строке у нас не три, а две статьи, вторая статья из-за правого марджина будет немного смещена и будет располагаться нессиметрично*/
+
+     .product-article:nth-child(n+3) {
+      margin-top: 0;
+    }
+
+     .product-article:nth-child(n+4) {
+      margin-top: 200px;      /*Отступ между статьями с учётом длины картинок*/
+    }
+
+    .product-article .article-prewiew {
+      width: 86.46%;
+      min-width: 268px;
+    }
+
+    .product-article .article-info {
+      top: 175px;         /*Так как блок над абсолютно спозиционированной картинкой, смещаем его вниз на нужное расстояние, чтобы он немного налезал на картинку*/
+  
+      width: 100%;     /*Без этого рамка описания будет почему-то чуть уже, хотя мы задали выше ширину статьи в целом*/
+      min-width: 310px;
+      padding: 54px 20px 26px; /*Отступ слева для заголовка и тэгов будет меняться с изменением размера блока*/
+      min-height: 267px; /*Блок с информацией увеличивается при увеличении окна, но минимальная его высота 267px*/
+    }
+
+    .aside-products .aside-title-link {
+      font-size: 20px;
+    }
+
+    .product-article .article-paragraph {
+      font-size: 15px;
+      padding-bottom: 22px;
+    }
+
+    .article-footer {
+      padding: 0;
+    }
+
+    .product-price {
+      font-size: 20px;
+    }
+
+    .old-price {
+      font-size: 14px;
+    }
+
+    .shop-link .button {
+      padding-left: 29px;
+      padding-right: 29px;
+    }
+
+    .shop-link-button {
+      font-size: 14px;
+    }
+  }
+
   .footer {
-    width: 1660px;
-    min-width: 1660px;
+    min-width: 290px;
+    padding: 0 4.17% 45px;
+    margin-top: 300px;
   }
   
   .articles-socials {
     display: block;
-    padding-top: 29px;
+    padding-top: 30px;
     padding-bottom: 30px;
-    margin-top: 60px;
-    margin-left: 245px;
-    margin-right: 245px;
     
     background-color: #f4f7f6;
   }
@@ -897,37 +1403,57 @@
     list-style: none;
   }
   
-  .socials-item {
-    margin-left: 11px;
-    margin-right: 11px;
+  .socials-item:nth-child(n+2) {
+    margin-left: 30px;
   }
   
   .socials-link {
     display: block;
-    height: 24px;
-    width: 24px;
-    background-size: 20px ;
+
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
   }
-  
-  .socials-link-dribbble {
-    background-image: url("../svg/006-dribbble.svg");
+
+  .socials-link-twitter {
+    height: 23px;    /*Здесь и в следующей строчке мы как бы выделяем область под иконки; если этого не сделать, то их не быдет видно, так как на странице под них не выделено место*/
+    width: 23px;
+
+    background-image: url("../svg/004-twitter.svg");
   }
   
   .socials-link-pinterest {
+    height: 20px;
+    width: 16px;
+
     background-image: url("../svg/001-pinterest.svg");
+  }
+
+  .socials-link-facebook {
+    height: 20px;
+    width: 12px;
+
+    background-image: url("../svg/002-facebook-logo.svg");
+  }
+
+  .socials-link-instagram {
+    height: 20px;
+    width: 20px;
+
+    background-image: url("../svg/005-instagram.svg");
   }
   
   .socials-link-tumblr {
+    height: 20px;
+    width: 13px;
+
     background-image: url("../svg/003-tumblr.svg");
   }
   
   .copyright {
     text-align: center;
+    margin-top: 45px;
     margin-left: 5px;
-    padding-top: 70px;
-    padding-bottom: 40px;
   }
   
   .copyright-link {
@@ -939,4 +1465,25 @@
     text-decoration: none;
     color: #999999;
   }
-  */
+
+  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+    .footer {
+      padding: 0 4.69% 36px;
+      margin-top: 252px;
+    }
+  }
+
+  @media (min-width: 1201px) {
+    .footer {
+      width: 70.48%;   /*Обязательно нужен width в %, без него footer при сужении/растяжении страницы будет смещаться, или вообще не будет сужаться*/
+      min-width: 1064px;
+      max-width: 1170px;
+      padding: 0 0 45px;
+      margin: 239px auto 0;
+    }
+
+    .copyright {
+      margin-top: 68px;
+    }
+  }
+  
