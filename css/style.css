@@ -147,7 +147,7 @@
     color: #ffffff;
   }
 
-  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+  @media (min-width: 641px), (max-width: 640px) and (orientation: landscape) {
     .header {
       padding: 28px 35px 113px;
 
@@ -180,7 +180,7 @@
     }
   }
 
-  @media (min-width: 1201px) {
+  @media (min-width: 1201px), (min-width: 641px) and (max-width: 1200px) and (orientation: landscape) {
     .header {
       padding: 28px 245px 125px;
 
@@ -386,7 +386,7 @@
     color: #b59f5b;
   }
 
-  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+  @media (min-width: 641px), (max-width: 640px) and (orientation: landscape) {
     .aside {
       padding-top: 64px;
     }
@@ -432,7 +432,7 @@
     }
   }
 
-  @media (min-width: 1201px) /*, (min-width: 641px) and (max-width: 1200px) and (orientation: landscape)*/ {
+  @media (min-width: 1201px), (min-width: 641px) and (max-width: 1200px) and (orientation: landscape) {
     .aside-trends .trends {
       margin-top: 13px;
     }
@@ -836,7 +836,7 @@
     color: #b59f5b;
   }
 
-  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+  @media (min-width: 641px), (max-width: 640px) and (orientation: landscape) {
     .aside-trends {
       padding-top: 44px;
     }
@@ -999,7 +999,7 @@
     }
   }
 
-  @media (min-width: 1201px) {
+  @media (min-width: 1201px), (min-width: 641px) and (max-width: 1200px) and (orientation: landscape) {
     .page {
       width: 70.48%;
       min-width: 964px;
@@ -1226,7 +1226,7 @@
     padding-right: 28px;
   }
 
-  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+  @media (min-width: 641px), (max-width: 640px) and (orientation: landscape) {
     .aside-products {
       margin-top: 42px;
       width: 100%;
@@ -1302,7 +1302,7 @@
     }
   }
 
-  @media (min-width: 1201px) {
+  @media (min-width: 1201px), (min-width: 641px) and (max-width: 1200px) and (orientation: landscape) {
     .aside-products {
       margin-top: 55px;
       margin-left: auto;
@@ -1466,14 +1466,14 @@
     color: #999999;
   }
 
-  @media (min-width: 641px)/*, (max-width: 640px) and (orientation: landscape)*/ {
+  @media (min-width: 641px), (max-width: 640px) and (orientation: landscape) {
     .footer {
       padding: 0 4.69% 36px;
       margin-top: 252px;
     }
   }
 
-  @media (min-width: 1201px) {
+  @media (min-width: 1201px), (min-width: 641px) and (max-width: 1200px) and (orientation: landscape) {
     .footer {
       width: 70.48%;   /*Обязательно нужен width в %, без него footer при сужении/растяжении страницы будет смещаться, или вообще не будет сужаться*/
       min-width: 1064px;
