@@ -29,6 +29,330 @@
     font-style: normal;
   }
 
+  .hidden {
+    visibility: hidden;
+  }
+
+  .popup {
+    display: flex;              /*Эти две строки для того, чтобы блок находился по центру,*/
+    justify-content: center;    /*так как почему-то если делать margin: auto; у popup-container, то это не срабатывает*/ 
+    min-width: 300px;           /*Для того, чтобы прибольшом сужении экрана блок оставался по центру*/
+  }
+
+  .popup::after {
+    content: "";
+    
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    background-color: #000000;
+    opacity: 0.6;
+  }
+
+  .popup-close {
+    position: relative;
+    top: 23px;
+    z-index: 3;
+
+    width: 91.67%;
+    max-width: 390px;
+  }
+
+  .popup-close-button {
+    position: absolute;
+    right: 0;
+
+    width: 27px;
+    height: 27px;
+
+    border: 0;
+    background-color: RGBA(211, 197, 157, 0);    /*Неважно, какой цвет, ставим прозрачность на максимум, чтобы не было фонового серго цвета кнопки*/
+   
+    background-image: url("../svg/form-x.svg");
+    background-size: 26px auto;    
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .popup-container {
+    position: fixed;
+    z-index: 3;
+    
+    width: 91.67%;
+    max-width: 390px;
+    margin-top: 56px;
+
+    background-color: #ffffff;
+  }
+
+  .feedback {
+    padding-top: 24px;
+    padding-bottom: 28px;
+  }
+
+  .feedback .feedback-title::after {
+    margin-bottom: 0;
+  }
+
+  .feedback-form {
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
+  }
+
+  /*.form-name {
+    display: flex;
+    flex-direction: column;
+  }*/                         /*Пока заккоментирую это, т.к. хз, зачем эти строки нужны, при их удалении ничего не меняется*/
+
+  .form-name {
+    margin-bottom: 10px;
+    
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Open Sans", "Arial", sans-serif;
+  }
+
+  .popup-field {
+    width: 100%;
+    max-width: 350px;
+
+    box-sizing: border-box;
+    padding: 14px 15px 15px 20px;
+    
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Open Sans", "Arial", sans-serif;
+    
+    border: 0;
+    background-color: #f4f7f6;
+   
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  .popup-field:focus {
+   outline: 1px solid #b59f5b;
+  }
+  
+  .periodicity {
+    height: 48px;
+    
+    background-image: url("../svg/form-arrows.svg");
+    background-size: 3.33% auto;    /*3.33% считаются от размеров поля без паддингов*/
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+  }
+
+  .select {
+    margin-top: 25px;
+  }
+
+  .feedback-chapter .form-name {
+    display: block;
+  }
+
+  .feedback-chapter .form-group, .feedback-chapter .form-name {
+    font-style: normal;
+    font-size: 13px;
+    font-weight: 400;
+    font-family: "Open Sans", "Arial", sans-serif;
+  }
+
+  .feedback-chapter .form-group:nth-of-type(n+2) {   /*Пишем не nth-child, а nth-of-type потому, что на одном уровне помимо радио-кнопок у нас есть ещё span (и может быть ещё что-то), и он это так же учитывает, а с nth-of-type он учитывает только радио-кнопки*/
+    margin-left: 28px;
+  }
+
+  .mailing {
+    margin-top: 28px;
+  }
+
+  .radio-group-text::before {
+    content: "";
+
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 25px;
+    margin-right: 6px;
+
+    background-image: url("../svg/form-empty-circle.svg");
+    background-size: 25px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .mailing-radio:checked ~ .radio-group-text::before {
+    background-image: url("../svg/form-circle.svg");
+  }
+
+  .mailing-radio {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+  }
+
+  .content {
+    margin-top: 28px;
+  }
+
+  .suggestions {
+    height: 130px;
+    resize: none;
+  }
+
+  .sending {
+    margin-top: 20px;
+  }
+
+  .feedback-sending {
+    width: 100%;
+    max-width: 350px;
+    height: 48px;
+    
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Open Sans", "Arial", sans-serif;
+    text-transform: uppercase;
+    
+    border: 0;
+    color: #ffffff;
+    background-color: #b59f5b;
+   
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  @media (min-width: 641px) {
+    .popup-close {
+      top: 184px;
+    }
+  
+    .popup-container {
+      margin-top: 221px;
+    }
+  
+    .feedback {
+      padding-top: 49px;
+      padding-bottom: 54px;
+    }
+
+    .popup .feedback-title {
+      font-size: 18px;
+    }
+  
+    .feedback-form {
+      padding-left: 29px;
+      padding-right: 29px;
+    }
+  
+    .form-name {
+      margin-bottom: 7px;
+    }
+  
+    .mailing {
+      margin-top: 30px;
+    }
+  
+    .content {
+      margin-top: 30px;
+    }
+
+    .content .form-name {
+      padding-right: 10px;
+    }
+
+    .suggestions {
+      padding-top: 17px;
+    }
+  
+    .sending {
+      margin-top: 23px;
+    }
+  }
+
+  @media (min-width: 1201px) {
+    .popup-close {
+      top: 215px;
+    }
+  
+    .popup-close-button {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .popup-container {
+      position: absolute;
+      margin-top: 242px;
+    }
+  
+    .feedback {
+      padding-top: 47px;
+      padding-bottom: 54px;
+    }
+
+    .popup .feedback-title {
+      font-size: 20px;
+    }
+  
+    .feedback-form {
+      padding-left: 29px;
+      padding-right: 29px;
+    }
+  
+    .form-name {
+      margin-bottom: 7px;
+    }
+  
+    .mailing {
+      margin-top: 30px;
+    }
+
+    .radio-group-text::before {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+  
+      background-size: 18px auto;
+    }
+
+    .feedback-chapter .form-group:nth-of-type(n+2) {
+      margin-left: 12px;
+   }
+  
+    .content {
+      margin-top: 26px;
+    }
+
+    .content .form-name {
+      padding-right: 10px;
+    }
+
+    .suggestions {
+      padding-top: 17px;
+    }
+  
+    .sending {
+      margin-top: 24px;
+    }
+  }
+
+  
+
+  
+
+
+
+  
+
   header, .aside-trends, .page, .aside-products {
     flex-grow: 1;    /*Для того, чтобы footer был снизу страницы, даже если контента будет мало*/
   }
@@ -249,7 +573,7 @@
     min-width: 300px; /*Эта строка для того, чтобы заголовок "Сейчас в тренде" при уменьшении экрана меньше 360px оставался по центру*/
   }
 
-  .section-title {
+  .section-title, .feedback-title {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -263,7 +587,7 @@
     color: #0f0d0e;
   }
 
-  .section-title::after {
+  .section-title::after, .feedback-title::after {
     content: "";
   
     width: 66px;

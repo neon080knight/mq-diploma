@@ -9,6 +9,57 @@
   </head>
 
   <body>
+      <div class="popup hidden">
+        <form class="popup-close">
+          <button class="popup-close-button" type="button">
+            <span class="form-description">Закрыть всплывающее окно</span>
+          </button>
+        </form>
+        <div class="popup-container">
+          <div class="feedback">
+            <h2 class="feedback-title">
+              Ваш фидбек
+            </h2>
+            <form class="feedback-form">
+              <div class="feedback-chapter select">
+                <label class="form-group">
+                  <span class="form-name">Как часто вы заходите на сайт?</span>
+                  <select class="periodicity popup-field" name="periodicity" required>
+                    <option value="1" class="select-variant">Почти каждый день</option>
+                    <option value="2" class="select-variant">Раз в несколько дней</option>
+                    <option value="3" class="select-variant">Раз в несколько недель</option>
+                    <option value="4" class="select-variant">Несколько раз в год</option>
+                  </select>
+                </label>
+              </div>
+              <div class="feedback-chapter mailing">
+                <span class="form-name">Вы подписаны на email-рассылку?</span>
+                <label class="form-group"> 
+                  <input class="mailing-radio" type="radio" name="mail-radio-group" required>
+                  <span class="radio-group-text">Да</span>
+                </label>
+                <label class="form-group">
+                  <input class="mailing-radio" type="radio" name="mail-radio-group" required>
+                  <span class="radio-group-text">Нет</span>
+                </label>
+              </div>
+              <div class="feedback-chapter content">
+                <label class="form-group">
+                  <span class="form-name">Расскажите, какой контент вы хотели бы видеть на нашем сайте?</span>
+                  <textarea class="suggestions popup-field" placeholder="Может, больше рецептов?"></textarea>
+                </label>
+              </div>
+              <div class="feedback-chapter sending">
+                  <button class="feedback-sending">
+                    <span>Отправить</span>
+                    <span class="form-description">Отправить</span>
+                  </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <header class="header">
         <div class="header-container">
           <div class="logo">
